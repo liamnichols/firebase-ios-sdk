@@ -108,6 +108,19 @@ NS_SWIFT_NAME(Crashlytics)
 - (void)recordError:(NSError *)error NS_SWIFT_NAME(recordError(_:));
 
 /**
+ * Records a non-fatal event described by an NSError object. The events are
+ * grouped and displayed similarly to crashes. Keep in mind that this method can be expensive.
+ * The total number of NSErrors that can be recorded during your app's life-cycle is limited by a
+ * fixed-size circular buffer. If the buffer is overrun, the oldest data is dropped. Errors are
+ * relayed to Crashlytics on a subsequent launch of your application.
+ *
+ * @param error Non-fatal error to be recorded
+ * @param userInfo additional context not represented by the NSError instance itself.
+ */
+- (void)recordError:(NSError *)error withAdditionalUserInfo:(nullable NSDictionary<NSString *, id> *)userInfo
+    NS_SWIFT_NAME(recordError(_:withAdditionalUserInfo:));
+
+/**
  * Records an Exception Model described by an FIRExceptionModel object. The events are
  * grouped and displayed similarly to crashes. Keep in mind that this method can be expensive.
  * The total number of FIRExceptionModels that can be recorded during your app's life-cycle is

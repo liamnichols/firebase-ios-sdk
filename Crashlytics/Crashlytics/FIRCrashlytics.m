@@ -310,6 +310,10 @@ NSString *const FIRCLSGoogleTransportMappingID = @"1206";
   FIRCLSUserLoggingRecordError(error, nil);
 }
 
+- (void)recordError:(NSError *)error withAdditionalUserInfo:(nullable NSDictionary<NSString *, id> *)userInfo {
+  FIRCLSUserLoggingRecordError(error, userInfo);
+}
+
 - (void)recordExceptionModel:(FIRExceptionModel *)exceptionModel {
   FIRCLSExceptionRecordModel(exceptionModel);
 }
