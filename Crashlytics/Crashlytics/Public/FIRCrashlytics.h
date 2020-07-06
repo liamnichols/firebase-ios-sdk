@@ -105,7 +105,7 @@ NS_SWIFT_NAME(Crashlytics)
  *
  * @param error Non-fatal error to be recorded
  */
-- (void)recordError:(NSError *)error NS_SWIFT_NAME(record(error:));
+- (void)recordError:(NSError *)error NS_SWIFT_NAME(recordError(_:));
 
 /**
  * Records an Exception Model described by an FIRExceptionModel object. The events are
